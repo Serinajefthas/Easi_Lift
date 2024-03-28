@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver_name: MyString
+  date: 2024-03-28
+  time: 2024-03-28 18:26:03
+  start_location: MyString
+  destination: MyString
+  cost: 9.99
+
+two:
+  driver_name: MyString
+  date: 2024-03-28
+  time: 2024-03-28 18:26:03
+  start_location: MyString
+  destination: MyString
+  cost: 9.99
