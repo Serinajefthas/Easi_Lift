@@ -3,8 +3,8 @@
 <%= render @lift %>
 
 <div>
-  <%= link_to "Edit this lift", edit_lift_path(@lift) %> |
-  <%= link_to "Back to lifts", lifts_path %>
+  <%= link_to "Edit this lift", edit_lift_path(@lift) %>
+  <br/><%= link_to "Back to lifts", lifts_path %><br/>
 
   <%= button_to "Destroy this lift", @lift, method: :delete %>
 </div>
