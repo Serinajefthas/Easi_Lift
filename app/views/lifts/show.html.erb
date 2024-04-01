@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @lift %>
+<div class="container-fluid text-sm-left p-5 bg-light">
+  <h3 class="display-3">
+		<%= @lift.driver_name %>
+	</h3>
+	<p class="lead">
+		<strong>Date:  </strong><%= @lift.date %><br>
+		<strong>Time:  </strong><%= @lift.time %><br>
+		<strong>Start location:  </strong><%= @lift.start_location %><br>
+		<strong>Destination:  </strong><%= @lift.destination %><br>
+		<strong>Cost:  </strong><%= @lift.cost %>
+		<strong>Contact number:  </strong><%= @lift.contact_number %>
+	</p>
+	<div>
+		<br><%= link_to "Edit", edit_lift_path(@lift), class: "btn btn-secondary" %>
+		<%= link_to "Back", lifts_path, class: "btn btn-secondary" %><br/>
 
-<div>
-  <%= link_to "Edit this lift", edit_lift_path(@lift) %>
-  <br/><%= link_to "Back to lifts", lifts_path %><br/>
-
-  <%= button_to "Destroy this lift", @lift, method: :delete %>
+		<br><%= link_to "Destroy this lift", @lift, method: :delete, class: "btn btn-secondary"  %>
+	</div>
 </div>

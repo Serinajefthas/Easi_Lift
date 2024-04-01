@@ -1,20 +1,44 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Lifts</h1>
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Driver name</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Start location</th>
+      <th>Destination</th>
+      <th>Cost</th>
+      <th>&nbsp</th> <!-- Empty headers for actions column -->
+      <th>&nbsp</th>
+      <th>&nbsp</th>
+    </tr>
+  </thead>
 
-<table class="table">
-  <div id="lifts">
-    <thead class>
-    </thead>
-    <tbody>  
-      <% @lifts.each do |lift| %>
-        <%= render lift %>
-        <p>
-          <%= link_to "Show this lift", lift %>
-        </p>
-      <% end %>
-    </tbody>
-  </div>
+  <tbody>   
+    <% @lifts.each do |lift| %>
+      <tr>
+        <td><%= lift.driver_name %></td>
+        <td><%= lift.date %></td>
+        <td><%= lift.time %></td>
+        <td><%= lift.start_location %></td>
+        <td><%= lift.destination %></td>
+        <td><%= lift.cost %></td>
+        <td>
+          <%= link_to "Show", lift%>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_lift_path(lift) %>
+        </td>
+        <td>
+          <%= link_to "Delete", lift, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
 </table>
 
-<%= link_to "Add new lift", new_lift_path %>
+<br>
+
+<%= link_to "Add new lift", new_lift_path, class: "btn btn-success" %>
