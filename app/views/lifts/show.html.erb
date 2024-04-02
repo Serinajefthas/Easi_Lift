@@ -6,16 +6,16 @@
 	</h3>
 	<p class="lead">
 		<strong>Date:  </strong><%= @lift.date %><br>
-		<strong>Time:  </strong><%= @lift.time %><br>
+		<strong>Time:  </strong><%= @lift.time.strftime('%H:%M') %><br>
 		<strong>Start location:  </strong><%= @lift.start_location %><br>
 		<strong>Destination:  </strong><%= @lift.destination %><br>
-		<strong>Cost:  </strong><%= @lift.cost %>
-		<strong>Contact number:  </strong><%= @lift.contact_number %>
+		<strong>Cost:  </strong><%= @lift.cost %><br>
+		<strong>Contact number:  </strong><%= @lift.contact_number %><br>
 	</p>
 	<div>
-		<br><%= link_to "Edit", edit_lift_path(@lift), class: "btn btn-secondary" %>
+		<%= link_to "Edit", edit_lift_path(@lift), class: "btn btn-secondary" %>
 		<%= link_to "Back", lifts_path, class: "btn btn-secondary" %><br/>
 
-		<br><%= link_to "Destroy this lift", @lift, method: :delete, class: "btn btn-secondary"  %>
+		<br><%= link_to "Destroy this lift", @lift, class: "btn btn-secondary",  method: :delete %>
 	</div>
 </div>

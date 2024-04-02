@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_071314) do
     t.decimal "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_number"
   end
 
 end

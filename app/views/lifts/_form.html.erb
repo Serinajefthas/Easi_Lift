@@ -13,35 +13,40 @@
 
   <div>
     <%= form.label :driver_name, style: "display: block" %>
-    <%= form.text_field :driver_name %>
+    <%= form.text_field :driver_name, required: true %>
   </div>
 
   <div>
     <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, required: true %>
   </div>
 
   <div>
     <%= form.label :time, style: "display: block" %>
-    <%= form.time_field :time %>
+    <%= form.time_field :time, required: true %>
   </div>
 
   <div>
     <%= form.label :start_location, style: "display: block" %>
-    <%= form.text_field :start_location %>
+    <%= form.text_field :start_location, required: true %>
   </div>
 
   <div>
     <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination %>
+    <%= form.text_field :destination, required: true %>
   </div>
 
   <div>
     <%= form.label :cost, style: "display: block" %>
-    <%= form.text_field :cost %>
+    <%= form.text_field :cost, required: true %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :contact_number, style: "display: block" %>
+    <%= form.text_field :contact_number, required: true %>
+  </div>
+
+  <div>
+    <br><%= form.submit "Create new lift", class: "btn btn-success"%>
   </div>
 <% end %>
