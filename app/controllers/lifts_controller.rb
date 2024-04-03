@@ -1,4 +1,5 @@
 class LiftsController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :set_lift, only: %i[ show edit update destroy ]
 
   # GET /lifts or /lifts.json
@@ -50,10 +51,11 @@ class LiftsController < ApplicationController
   # DELETE /lifts/1 or /lifts/1.json
   def destroy
     @lift.destroy!
-
+    
     respond_to do |format|
-      format.html { redirect_to lifts_url, notice: "Lift was successfully destroyed." }
+      format.html { redirect_to lifts_url, notice: "Lift was successfully deleted." }
       format.json { head :no_content }
+      format.turbo_stream { }
     end
   end
 
@@ -65,6 +67,6 @@ class LiftsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lift_params
-      params.require(:lift).permit(:driver_name, :date, :time, :start_location, :destination, :cost)
+      params.require(:lift).permit(:driver_name, :date, :time, :start_location, :destination, :cost, :contact_number)
     end
 end

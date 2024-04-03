@@ -12,9 +12,30 @@
 				<li class="nav-item">
 					<%= link_to 'Lifts Available', lifts_path, class:"nav-link" %>
         </li>
-				<li class="nav-item">
+        
+        <% if user_signed_in? %>
+          <li class="nav-item">
 					<%= link_to 'New lift', new_lift_path, class:"nav-link" %>
-        </li>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign out', destroy_user_session_path, class:"nav-link",
+                  data: {
+                    turbo_method: :delete
+                  } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+					<%= link_to 'Sign up', new_user_registration_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Login', new_user_session_path, class:"nav-link" %>
+          </li>
+        <% end %>
+
         <%# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown

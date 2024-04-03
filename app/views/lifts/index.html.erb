@@ -18,24 +18,28 @@
 
   <tbody>   
     <% @lifts.each do |lift| %>
-      <tr>
+      <%= content_tag :tr, id: dom_id(lift) do %>
         <td><%= lift.driver_name %></td>
         <td><%= lift.date %></td>
-        <td><%= lift.time %></td>
+        <td><%= lift.time.strftime('%H:%M') %></td>
         <td><%= lift.start_location %></td>
         <td><%= lift.destination %></td>
         <td><%= lift.cost %></td>
         <td><%= lift.contact_number %></td>
         <td>
-          <%= link_to "Show", lift%>
+          <%= link_to "Show", lift, class: "btn btn-secondary btn-sm"%>
         </td>
         <td>
-          <%= link_to "Edit", edit_lift_path(lift) %>
+          <%= link_to "Edit", edit_lift_path(lift), class: "btn btn-secondary btn-sm" %>
         </td>
         <td>
-          <%= link_to "Delete", lift, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Delete", lift, class: "btn btn-secondary btn-sm", 
+                data: {
+                  turbo_method: :delete, 
+                  turbo_confirm: 'Are you sure you want to delete this lift?'
+                } %>
         </td>
-      </tr>
+      <% end %>
     <% end %>
   </tbody>
 
@@ -43,4 +47,4 @@
 
 <br>
 
-<%= link_to "Add new lift", new_lift_path, class: "btn btn-success" %>
+<%= link_to "Add new lift", new_lift_path, class: "btn btn-dark" %>

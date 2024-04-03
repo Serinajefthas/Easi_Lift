@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="container-fluid text-sm-left p-5 bg-light">
-  <h3 class="display-3">
+  <h4 class="display-4">
 		<%= @lift.driver_name %>
-	</h3>
+	</h4>
 	<p class="lead">
+		<br/>
 		<strong>Date:  </strong><%= @lift.date %><br>
 		<strong>Time:  </strong><%= @lift.time.strftime('%H:%M') %><br>
 		<strong>Start location:  </strong><%= @lift.start_location %><br>
@@ -13,9 +14,9 @@
 		<strong>Contact number:  </strong><%= @lift.contact_number %><br>
 	</p>
 	<div>
-		<%= link_to "Edit", edit_lift_path(@lift), class: "btn btn-secondary" %>
-		<%= link_to "Back", lifts_path, class: "btn btn-secondary" %><br/>
-
-		<br><%= link_to "Destroy this lift", @lift, class: "btn btn-secondary",  method: :delete %>
+		<br>
+		<br/>
+		<%= link_to "Edit", edit_lift_path(@lift), class: "btn btn-secondary btn-sm" %>
+		<%= link_to "Back", lifts_path, class: "btn btn-secondary btn-sm" %><br/>
 	</div>
 </div>

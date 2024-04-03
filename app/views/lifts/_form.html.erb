@@ -11,42 +11,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :driver_name, style: "display: block" %>
-    <%= form.text_field :driver_name, required: true %>
+  <div class="form-group">
+    <% form.label :driver_name, style: "display: block" %>
+    <%= form.text_field :driver_name, required: true, class:"form-control", placeholder:"Driver's name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.date_field :date, required: true, class:"form-control", placeholder:"Date" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.time_field :time, required: true, class:"form-control", placeholder:"Time" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :start_location, required: true, class:"form-control", placeholder:"Start location" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :destination, required: true, class:"form-control", placeholder:"Destination" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :cost, required: true, class:"form-control", placeholder:"Cost" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :contact_number, required: true, class:"form-control", placeholder:"Contact number" %>
   </div>
 
   <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :time, style: "display: block" %>
-    <%= form.time_field :time, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :start_location, style: "display: block" %>
-    <%= form.text_field :start_location, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :cost, style: "display: block" %>
-    <%= form.text_field :cost, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :contact_number, style: "display: block" %>
-    <%= form.text_field :contact_number, required: true %>
-  </div>
-
-  <div>
-    <br><%= form.submit "Create new lift", class: "btn btn-success"%>
+    <br><br/>
+    <%= form.submit class: "btn btn-dark"%>
   </div>
 <% end %>
