@@ -1,6 +1,8 @@
 class LiftsController < ApplicationController
   include ActionView::RecordIdentifier
   before_action :set_lift, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /lifts or /lifts.json
   def index
@@ -13,7 +15,7 @@ class LiftsController < ApplicationController
 
   # GET /lifts/new
   def new
-    @lift = Lift.new
+    @lift = current_user.lifts.build
   end
 
   # GET /lifts/1/edit
@@ -22,7 +24,7 @@ class LiftsController < ApplicationController
 
   # POST /lifts or /lifts.json
   def create
-    @lift = Lift.new(lift_params)
+    @lift = current_user.lifts.build(lift_params)
 
     respond_to do |format|
       if @lift.save
@@ -59,6 +61,11 @@ class LiftsController < ApplicationController
     end
   end
 
+  def correct_user
+    @lift = current_user.lifts.find_by(id: params[:id])
+    redirect_to lifts_path, notice: "Not authorised to edit this lift" if @lift.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lift
@@ -67,6 +74,6 @@ class LiftsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lift_params
-      params.require(:lift).permit(:driver_name, :date, :time, :start_location, :destination, :cost, :contact_number)
+      params.require(:lift).permit(:driver_name, :date, :time, :start_location, :destination, :cost, :contact_number, :user_id)
     end
 end

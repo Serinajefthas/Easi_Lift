@@ -29,16 +29,24 @@
         <td>
           <%= link_to "Show", lift, class: "btn btn-secondary btn-sm"%>
         </td>
-        <td>
-          <%= link_to "Edit", edit_lift_path(lift), class: "btn btn-secondary btn-sm" %>
-        </td>
-        <td>
-          <%= link_to "Delete", lift, class: "btn btn-secondary btn-sm", 
-                data: {
-                  turbo_method: :delete, 
-                  turbo_confirm: 'Are you sure you want to delete this lift?'
-                } %>
-        </td>
+
+        <% if lift.user == current_user %>
+          <td>
+            <%= link_to "Edit", edit_lift_path(lift), class: "btn btn-secondary btn-sm" %>
+          </td>
+          <td>
+            <%= link_to "Delete", lift, class: "btn btn-secondary btn-sm", 
+                  data: {
+                    turbo_method: :delete, 
+                    turbo_confirm: 'Are you sure you want to delete this lift?'
+                  } %>
+          </td>
+        <% else %>
+          <td>
+            <%# <%= link_to "Book lift", book_lift_path(lift), class: "btn btn-secondary btn-sm"%> 
+          </td>
+        <% end %>
+
       <% end %>
     <% end %>
   </tbody>
