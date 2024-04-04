@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container-fluid text-sm-left p-5 bg-light">
+  <h4 class="display-4">
+		<%= @associated_lift.driver_name %>
+	</h4>
+	<p class="lead">
+		<br/>
+		<strong>Date:  </strong><%= @associated_lift.date %><br>
+		<strong>Time:  </strong><%= @associated_lift.time.strftime('%H:%M') %><br>
+		<strong>Start location:  </strong><%= @associated_lift.start_location %><br>
+		<strong>Destination:  </strong><%= @associated_lift.destination %><br>
+		<strong>Cost:  </strong><%= @associated_lift.cost %><br>
+		<strong>Contact number:  </strong><%= @associated_lift.contact_number %><br>
+	</p>
+	<div>
+		<br>
+		<br/>
+		<%= link_to "Back", bookings_path, class: "btn btn-secondary btn-sm" %><br/>
+	</div>
+</div>

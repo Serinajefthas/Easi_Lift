@@ -6,14 +6,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-					<%= link_to 'About', home_about_path, class:"nav-link" %>
-        </li>
+        
 				<li class="nav-item">
 					<%= link_to 'Lifts Available', lifts_path, class:"nav-link" %>
         </li>
         
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Bookings', bookings_path, class:"nav-link"%>
+          </li>
           <li class="nav-item">
 					<%= link_to 'New lift', new_lift_path, class:"nav-link" %>
           </li>
@@ -26,6 +27,8 @@
           <li class="nav-item">
             <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
           </li>
+
+          
 
         <% else %>
           <li class="nav-item">

@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Driver's name</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Start location</th>
+      <th>Destination</th>
+      <th>Cost</th>
+      <th>Contact number</th>
+      <th>&nbsp</th> <!-- Empty headers for actions column -->
+      <th>&nbsp</th>
+    </tr>
+  </thead>
+
+  <tbody>   
+    <% @bookings.each do |booking| %>
+      <%= content_tag :tr, id: dom_id(booking) do %>
+        <td><%= booking.lift.driver_name %></td>
+        <td><%= booking.lift.date %></td>
+        <td><%= booking.lift.time.strftime('%H:%M') %></td>
+        <td><%= booking.lift.start_location %></td>
+        <td><%= booking.lift.destination %></td>
+        <td><%= booking.lift.cost %></td>
+        <td><%= booking.lift.contact_number %></td>
+        <td>
+          <%= link_to "Show lift", lift_path(booking.lift), class: "btn btn-secondary btn-sm"%>
+        </td>
+				<td>
+				<%= link_to "Delete", booking_path(booking), class: "btn btn-secondary btn-sm", 
+							data: {
+								turbo_method: :delete, 
+								turbo_confirm: 'Are you sure you want to delete this lift?'
+							} %>
+        </td>
+      <% end %>
+    <% end %>
+  </tbody>
+
+</table>
+
+<br>
+
+<%= link_to "Add new booking", lifts_path, class: "btn btn-dark" %>
