@@ -1,5 +1,6 @@
 # EASI LIFT 
-![Easi_Lift_logo](https://github.com/Serinajefthas/Easi_Lift/assets/95409426/3231cff5-4463-41eb-ba96-8a8caba3aa0b)
+![Easi_Lift_logo](https://github.com/Serinajefthas/Easi_Lift/assets/95409426/2aaa4f6e-b6b9-4c00-b988-e18f378bcdfd)
+
 
 This is my final project for my ALX Software Engineering course! Easi Lift is a lift-sharing web based application using Ruby, Rails and PostgreSQL. I wanted to learn a new langauge and framework(s) so I decided Ruby and Rails was a good option for its relevance, as well as Bootstrap for some CSS and HTML styling. Easi Lift was designed as a way for members in my local community to offer rides and book rides from other members in the community, instead of waiting for more expensive ubers to arrive or accept their requests. It prevents members having to scroll through numerous messages in various social media groups trying to find others offering or needing lifts.
 
